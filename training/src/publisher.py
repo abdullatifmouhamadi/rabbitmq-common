@@ -5,7 +5,7 @@ count = 1
 
 def connect_machine():
     credentials = pika.PlainCredentials('guest', 'guest')
-    connection = pika.BlockingConnection(pika.ConnectionParameters('34.217.176.249', 5672, '/', credentials, socket_timeout=300))
+    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost', 5672, '/', credentials, socket_timeout=300))
     channel = connection.channel()
     channel.queue_declare(queue='sample_test', durable=True)
     return connection, channel

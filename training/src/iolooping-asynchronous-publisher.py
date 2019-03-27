@@ -51,7 +51,7 @@ class publish_engine:
     # Create our connection object, passing in the on_open method
         logging.basicConfig(level=logging.ERROR, format=LOG_FORMAT)
         credentials = pika.PlainCredentials('guest', 'guest')
-        parameters = pika.ConnectionParameters('54.200.201.1', 5672, '/', credentials, socket_timeout=300)
+        parameters = pika.ConnectionParameters('127.0.0.1', 5672, '/', credentials, socket_timeout=300)
         self._connection = pika.SelectConnection(parameters, on_open_callback=self.on_open)
         self._connection.add_on_close_callback(self.on_close)
         print("Script execution is done!! will start IO Loop")
