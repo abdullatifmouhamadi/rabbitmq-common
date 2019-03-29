@@ -14,7 +14,7 @@ class publish_engine:
 
     def make_connection(self):
         credentials = pika.PlainCredentials('guest', 'guest')
-        parameters = pika.ConnectionParameters('54.191.35.214', 5672, '/', credentials, socket_timeout=300)
+        parameters = pika.ConnectionParameters('127.0.0.1', 5672, '/', credentials, socket_timeout=300)
         self._connection = pika.BlockingConnection(parameters)
         print("Connected Successfully !!!")
         return self._connection
